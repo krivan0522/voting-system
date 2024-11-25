@@ -25,7 +25,7 @@ const Results = ({ contract }) => {
     // Prepare data for the charts
     const chartData = candidates.map((candidate) => ({
         name: candidate.name,
-        votes: Math.floor(Math.random()*500 )%500,
+        votes: parseInt(candidate.voteCount.toString()),
     }));
 
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF', '#FF1919', '#19FF19', '#1919FF'];
