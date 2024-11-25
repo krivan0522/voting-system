@@ -6,6 +6,7 @@ import Results from "./components/Results";
 import { CssBaseline, Container } from "@mui/material";
 import Header from "./components/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Simulation from "./Simulation";
 
 const App = () => {
   const [web3, setWeb3] = useState(null);
@@ -18,7 +19,7 @@ const App = () => {
         const web3Instance = await getWeb3();
         const accounts = await web3Instance.eth.getAccounts();
         const contractInstance = await getContract(web3Instance);
-
+        
         setWeb3(web3Instance);
         setAccounts(accounts);
         setContract(contractInstance);
@@ -40,8 +41,8 @@ const App = () => {
         <CssBaseline />
         <Header />
         <Container style={{ marginTop: "20px" }}>
-          <h1>Blockchain Voting System</h1>
           <Routes>
+            <Route path="/" element={<Simulation contract={contract}/>}/>  
             <Route path="/admin" element={<AdminPanel contract={contract} accounts={accounts}/>}/>
             <Route path="/voter" element={<VoterDashboard contract={contract} accounts={accounts}/>}/>
             <Route path="/results" element={<Results contract={contract}/>}/>
