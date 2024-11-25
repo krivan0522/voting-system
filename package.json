@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "chai": "^5.1.2",
+    "chai-as-promised": "^8.0.0",
+    "truffle": "^5.11.5"
+  }
+}
